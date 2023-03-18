@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <div style="color: skyblue">{{msg}} hello {{a.b.c.d}} 123</div>
+    <span>{{ list[0] }}</span>
+    <span>wodehsieji</span>
+    <br /> -->
+    <div id="app" style="color: red; font-size: 16px"></div>
+
+    <script src="dist/vue.js"></script>
+
+    <script>
+      Vue.mixin({
+        created() {
+          console.log('mixin-created1')
+        },
+        beforeCreate() {
+          console.log('mixin-beforeCreate1')
+        },
+      })
+      Vue.mixin({
+        mounted() {
+          console.log('mixin2-mounted')
+        },
+        created() {
+          console.log('mixin-created2')
+        },
+      })
+      // console.log(Vue.options)
+      const vm = new Vue({
+        el: '#app',
+        data() {
+          return {
+            msg: 'hello',
+            a: {
+              b: {
+                c: { d: 1 },
+              },
+            },
+            list: [1, 2, 3],
+            arr: [{ a: 1 }],
+            name: 'xujie',
+          }
+        },
+        beforeCreate() {
+          console.log('beforeCreate')
+        },
+        created() {
+          console.log('created')
+        },
+      })
+
+      // // setTimeout(() => {
+      // //   vm.msg = 'xujie12'
+      // //   vm.name = '数字'
+      // // }, 2000)
+      // vm.name = 'xujie-update'
+      // vm.$nextTick(() => {
+      //   console.log(app.innerHTML)
+      // })
+    </script>
+  </body>
+</html>

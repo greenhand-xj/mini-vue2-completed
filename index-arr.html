@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <div style="color: skyblue">{{msg}} hello {{a.b.c.d}} 123</div>
+    <span>{{ list[0] }}</span>
+    <span>wodehsieji</span>
+    <br /> -->
+    <div id="app" style="color: red; font-size: 16px">{{arr}}</div>
+
+    <script src="dist/vue.js"></script>
+
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data() {
+          return {
+            arr: [1, 2, 3, { a: 100 }, ['a', 'b']],
+          }
+        },
+      })
+      console.log('vm', vm)
+      // 这里要注意的是 你改变的不是arr属性 而是arr对象的数组对象
+      // vm.arr[3].a = 200
+      setTimeout(() => {
+        vm.arr[4].push('c')
+      }, 1000)
+    </script>
+  </body>
+</html>

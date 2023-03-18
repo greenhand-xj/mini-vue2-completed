@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <div style="color: skyblue">{{msg}} hello {{a.b.c.d}} 123</div>
+    <span>{{ list[0] }}</span>
+    <span>wodehsieji</span>
+    <br /> -->
+    <div id="app" style="color: red; font-size: 16px">
+      {{fullName}} {{fullName}} {{fullName}}
+    </div>
+
+    <script src="dist/vue.js"></script>
+
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data() {
+          return {
+            firstName: 'xu',
+            lastName: 'jie',
+          }
+        },
+        computed: {
+          fullName() {
+            console.log('run')
+            return this.firstName + this.lastName
+          },
+          // fullName: {
+          //   get() {},
+          //   set() {},
+          // },
+        },
+      })
+      setTimeout(() => {
+        vm.firstName = 'xu123'
+      }, 1000)
+    </script>
+  </body>
+</html>
